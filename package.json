@@ -1,0 +1,25 @@
+{
+  "name": "hue-experiment",
+  "version": "1.0.0",
+  "description": "A simple hue light experiement",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "local": "PORT=3000 nodemon index.js"
+  },
+  "keywords": [
+    "hue",
+    "lights",
+    "node"
+  ],
+  "author": "Corban Baxter <corbanb@gmail.com> (https://barbershop.io)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.14.0",
+    "nodemon": "1.11.0"
+  },
+  "engines": {
+    "node": "^6.9.1",
+    "npm": "^3.10.8"
+  }
+}
