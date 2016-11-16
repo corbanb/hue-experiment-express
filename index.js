@@ -3,6 +3,10 @@
 */
 var express = require('express');
 var app = express();
+var fs = require('fs');
+var path = require('path');
+var envPath = path.join(__dirname, '.env');
+if (fs.existsSync(envPath)) require('dotenv').config({ path:envPath }); // eslint-disable-line
 
 // Fancy handlebars templates. To be used later on.
 var exphbs  = require('express-handlebars');
