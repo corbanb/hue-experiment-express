@@ -1,13 +1,41 @@
+/*
+	Ignore this nerdy stuff for now
+*/
 var express = require('express');
 var app = express();
-var apiRouter = require('./server/routers/ApiRouter')(express, app);
 
+// Fancy handlebars templates. To be used later on.
+var exphbs  = require('express-handlebars');
+app.engine('.hbs', exphbs({ extname: '.hbs '}));
+app.set('view engine', '.hbs');
+
+// More nerdy stuff you can ignore
+var bodyParser = require('body-parser');
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json())
+
+
+/*
+	OK. Start to pay attention here.
+
+	Start API router see ApiRouter file.
+*/
+var apiRouter = require('./server/routers/ApiRouter')(express, app);
 app.use('/api/1.0', apiRouter);
 
+
+
+// ignore again for now
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  res.render('home');
 });
 
+
+
+
+// keep on ignoring nothing to see here
 app.use(function (err, req, res, next) {
   console.error(err.stack);
   res.status(500).send('Something broke!');
